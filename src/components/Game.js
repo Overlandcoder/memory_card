@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Card from "./Card";
+import uniqid from "uniqid";
 
 const Game = () => {
   const [score, setScore] = useState(0);
+  const [clickedCards, setClickedCards] = useState([]);
+
   // const deckId = "uqa92yhxjgsh";
   const imageUrls = [
     "https://deckofcardsapi.com/static/img/8D.png",
@@ -23,7 +26,11 @@ const Game = () => {
     <div className="Game">
       <div>Score: {score}</div>
       <div className="CardGrid">
-        {imageUrls.map(url => <Card url={url} />)}
+        {imageUrls.map(url => {
+          return <div key={uniqid()}>
+                   <Card url={url} />
+                  </div>;
+        })}
       </div>
     </div>
   )
