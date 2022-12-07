@@ -39,14 +39,26 @@ body {
   box-shadow:         0px 0px 15px 15px rgba(102, 175, 233, 0.6);
 }
 
+.Correct {
+  -webkit-box-shadow: 0px 0px 15px 15px rgba(102, 233, 115, 0.6);
+  -moz-box-shadow:    0px 0px 15px 15px rgba(102, 233, 115, 0.6);
+  box-shadow:         0px 0px 15px 15px rgba(102, 233, 115, 0.6);
+}
+
 .Score {
   color: green;
   font-weight: bold;
   font-size: 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 0px 20px;
 }
 
 .Zoom {
-  animation: Zoom 0.3s ease-out 0s;
+  animation: Zoom 0.5s ease-out 0s;
+  -webkit-box-shadow: 0px 0px 15px 15px rgba(102, 233, 115, 0.6);
+  -moz-box-shadow:    0px 0px 15px 15px rgba(102, 233, 115, 0.6);
+  box-shadow:         0px 0px 15px 15px rgba(102, 233, 115, 0.6);
 }
 
 @keyframes Zoom {
@@ -54,7 +66,8 @@ body {
     transform: scale(1, 1);
   }
   50% {
-    transform: scale(1.5, 1.5);
+    padding: 1px 60px 1px 60px;
+    transform: scale(1.07, 1.07);
   }
   100% {
     transform: scale(1, 1);
