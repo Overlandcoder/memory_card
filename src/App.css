@@ -9,7 +9,7 @@ body {
 
 .Game {
   margin: 20px;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -37,4 +37,10 @@ body {
   -webkit-box-shadow: 0px 0px 15px 15px rgba(102, 175, 233, 0.6);
   -moz-box-shadow:    0px 0px 15px 15px rgba(102, 175, 233, 0.6);
   box-shadow:         0px 0px 15px 15px rgba(102, 175, 233, 0.6);
+}
+
+.Score {
+  color: green;
+  font-weight: bold;
+  font-size: 30px;
 }
