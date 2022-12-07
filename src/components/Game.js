@@ -5,9 +5,7 @@ import uniqid from "uniqid";
 const Game = () => {
   const [score, setScore] = useState(0);
   const [clickedCards, setClickedCards] = useState([]);
-
-  // const deckId = "uqa92yhxjgsh";
-  const imageUrls = [
+  const [cardUrls, setCardUrls] = useState([
     "https://deckofcardsapi.com/static/img/8D.png",
     "https://deckofcardsapi.com/static/img/4S.png",
     "https://deckofcardsapi.com/static/img/6C.png",
@@ -20,9 +18,10 @@ const Game = () => {
     "https://deckofcardsapi.com/static/img/4D.png",
     "https://deckofcardsapi.com/static/img/5C.png",
     "https://deckofcardsapi.com/static/img/JC.png"
-  ];
+  ]);
 
-  function shuffle(array) {
+  function shuffleCards() {
+    let array = [...cardUrls];
     let currentIndex = array.length,  randomIndex;
     while (currentIndex !== 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
@@ -30,21 +29,22 @@ const Game = () => {
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex], array[currentIndex]];
     }
-    return array;
+    setCardUrls(array);
   }
 
   return (
     <div className="Game">
       <div>Score: {score}</div>
-      <div className="CardGrid">
-        {imageUrls.map(url => {
+      <div onClick={shuffleCards} className="CardGrid">
+        {cardUrls.map(cardUrl => {
           return <div key={uniqid()}>
-                   <Card url={url} />
-                  </div>;
+                   <Card url={cardUrl} />
+                 </div>;
         })}
       </div>
     </div>
   )
+  // const deckId = "uqa92yhxjgsh";
 }
 
 export default Game;
