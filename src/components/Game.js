@@ -6,6 +6,7 @@ const Game = () => {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [clickedCards, setClickedCards] = useState([]);
+  const [zoom, setZoom] = useState(false);
   const [cardUrls, setCardUrls] = useState([
     "https://deckofcardsapi.com/static/img/8D.png",
     "https://deckofcardsapi.com/static/img/4S.png",
@@ -22,6 +23,7 @@ const Game = () => {
   ]);
 
   useEffect(() => {
+    document.title = 'Memory Card Game';
     updateBestScore();
   })
 
@@ -39,16 +41,18 @@ const Game = () => {
 
   function playRound(event) {
     setClickedCards([...clickedCards, event.target.src]);
-    updateScore(event.target.src);
+    updateScore(event.target);
     shuffleCards();
   }
 
-  function updateScore(url) {
-    if (clickedCards.includes(url)) {
+  function updateScore(card) {
+    if (clickedCards.includes(card.src)) {
       setScore(0);
       setClickedCards([]);
+      setZoom(false);
     } else {
       setScore(score + 1);
+      setZoom(true);
     }
   }
 
@@ -61,7 +65,7 @@ const Game = () => {
   return (
     <div className="Game">
       <div>
-        <div className="Score">Score: {score}</div>
+        <div className={zoom ? "Score Zoom" : "Score"}>Score: {score}</div>
         <div>Best Score: {bestScore}</div>
       </div>
       <div className="CardGrid">
@@ -71,6 +75,7 @@ const Game = () => {
                  </div>;
         })}
       </div>
+      <div>Don't click the same card twice!</div>
     </div>
   )
   // const deckId = "uqa92yhxjgsh";

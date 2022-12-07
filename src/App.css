@@ -44,3 +44,19 @@ body {
   font-weight: bold;
   font-size: 30px;
 }
+
+.Zoom {
+  animation: Zoom 0.3s ease-out 0s;
+}
+
+@keyframes Zoom {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
