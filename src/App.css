@@ -15,7 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
 }
 
 .CardGrid {
@@ -50,8 +50,8 @@ body {
   font-weight: bold;
   font-size: 30px;
   border-radius: 10px;
-  margin-bottom: 20px;
-  padding: 0px 20px;
+  margin-bottom: 30px;
+  padding: 0px 50px;
 }
 
 .Zoom {
@@ -66,7 +66,7 @@ body {
     transform: scale(1, 1);
   }
   50% {
-    padding: 1px 60px 1px 60px;
+    padding: 1px 80px 1px 80px;
     transform: scale(1.07, 1.07);
   }
   100% {
@@ -75,6 +75,6 @@ body {
 }
 
 .Instructions {
-  margin-top: 30px;
+  margin-top: 20px;
   color: grey;
 }
