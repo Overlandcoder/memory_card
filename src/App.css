@@ -46,7 +46,8 @@ body {
 }
 
 .Zoom {
-  animation: Zoom 0.3s ease-out 0s;
+  animation: Zoom 0.5s ease-out 0s;
+  color: red;
 }
 
 @keyframes Zoom {
@@ -54,7 +55,7 @@ body {
     transform: scale(1, 1);
   }
   50% {
-    transform: scale(1.2, 1.2);
+    transform: scale(1.8, 1.8);
   }
   100% {
     transform: scale(1, 1);

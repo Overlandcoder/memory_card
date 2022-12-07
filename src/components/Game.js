@@ -49,10 +49,10 @@ const Game = () => {
     if (clickedCards.includes(card.src)) {
       setScore(0);
       setClickedCards([]);
-      setZoom(false);
+      setZoom(true);
     } else {
       setScore(score + 1);
-      setZoom(true);
+      setZoom(false);
     }
   }
 
