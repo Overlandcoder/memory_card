@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const Card = (props) => {
-  const image = <img src={props.url} alt="card"></img>
+  const image = <img src={props.url} alt="a card from a deck of cards" className="Card"></img>
 
   return(
     <div>

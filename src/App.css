@@ -14,3 +14,7 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 50px;
 }
+
+.Card {
+  height: 250px;
+}
