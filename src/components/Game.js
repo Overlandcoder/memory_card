@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import uniqid from "uniqid";
 
 const Game = () => {
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
   const [clickedCards, setClickedCards] = useState([]);
   const [cardUrls, setCardUrls] = useState([
     "https://deckofcardsapi.com/static/img/8D.png",
@@ -20,6 +21,10 @@ const Game = () => {
     "https://deckofcardsapi.com/static/img/JC.png"
   ]);
 
+  useEffect(() => {
+    updateBestScore();
+  })
+
   function shuffleCards() {
     let array = [...cardUrls];
     let currentIndex = array.length,  randomIndex;
@@ -32,12 +37,36 @@ const Game = () => {
     setCardUrls(array);
   }
 
+  function playRound(event) {
+    setClickedCards([...clickedCards, event.target.src]);
+    updateScore(event.target.src);
+    shuffleCards();
+  }
+
+  function updateScore(url) {
+    if (clickedCards.includes(url)) {
+      setScore(0);
+      setClickedCards([]);
+    } else {
+      setScore(score + 1);
+    }
+  }
+
+  function updateBestScore() {
+    if (score > bestScore) {
+      setBestScore(score);
+    }
+  }
+
   return (
     <div className="Game">
-      <div>Score: {score}</div>
+      <div>
+        <div className="Score">Score: {score}</div>
+        <div>Best Score: {bestScore}</div>
+      </div>
       <div className="CardGrid">
         {cardUrls.map(cardUrl => {
-          return <div onClick={shuffleCards} key={uniqid()}>
+          return <div onClick={playRound} key={uniqid()}>
                    <Card url={cardUrl} />
                  </div>;
         })}
