@@ -35,9 +35,9 @@ const Game = () => {
   return (
     <div className="Game">
       <div>Score: {score}</div>
-      <div onClick={shuffleCards} className="CardGrid">
+      <div className="CardGrid">
         {cardUrls.map(cardUrl => {
-          return <div key={uniqid()}>
+          return <div onClick={shuffleCards} key={uniqid()}>
                    <Card url={cardUrl} />
                  </div>;
         })}
