@@ -1,3 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(240, 240, 240);
+}
+
 .Game {
   margin: 20px;
   font-size: 30px;
@@ -17,4 +26,14 @@
 
 .Card {
   height: 250px;
+}
+
+.Card:hover {
+  cursor: pointer;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(102, 175, 233, 0.6);
+  -moz-box-shadow:    0px 0px 30px 0px rgba(102, 175, 233, 0.6);
+  box-shadow:         0px 0px 30px 0px rgba(102, 175, 233, 0.6);
 }
