@@ -75,7 +75,7 @@ const Game = () => {
                  </div>;
         })}
       </div>
-      <div>Don't click the same card twice!</div>
+      <div className="Instructions">Don't click the same card twice!</div>
     </div>
   )
   // const deckId = "uqa92yhxjgsh";

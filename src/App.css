@@ -60,3 +60,8 @@ body {
     transform: scale(1, 1);
   }
 }
+
+.Instructions {
+  margin-top: 30px;
+  color: grey;
+}
