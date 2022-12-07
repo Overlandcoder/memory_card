@@ -49,10 +49,10 @@ const Game = () => {
     if (clickedCards.includes(card.src)) {
       setScore(0);
       setClickedCards([]);
-      setZoom(true);
+      setZoom(false);
     } else {
       setScore(score + 1);
-      setZoom(false);
+      setZoom(true);
     }
   }
 
@@ -65,7 +65,13 @@ const Game = () => {
   return (
     <div className="Game">
       <div>
-        <div className={zoom ? "Score Zoom" : "Score"}>Score: {score}</div>
+        <div
+          onClick={() => setZoom(true)}
+          onAnimationEnd={() => setZoom(false)}
+          className={zoom ? "Score Zoom" : "Score"}
+        >
+          Score: {score}
+        </div>
         <div>Best Score: {bestScore}</div>
       </div>
       <div className="CardGrid">
