@@ -22,13 +22,9 @@ const Game = () => {
     "https://deckofcardsapi.com/static/img/JC.png"
   ]);
 
-  useEffect(() => {
-    updateBestScore();
-  })
-
   function shuffleCards() {
     let array = [...cardUrls];
-    let currentIndex = array.length,  randomIndex;
+    let currentIndex = array.length, randomIndex;
     while (currentIndex !== 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
@@ -47,15 +43,17 @@ const Game = () => {
   function updateScore(card) {
     if (clickedCards.includes(card.src)) {
       setScore(0);
+      updateBestScore(0);
       setClickedCards([]);
       setZoom(false);
     } else {
       setScore(score + 1);
+      updateBestScore(score + 1)
       setZoom(true);
     }
   }
 
-  function updateBestScore() {
+  function updateBestScore(score) {
     if (score > bestScore) {
       setBestScore(score);
     }
@@ -76,8 +74,8 @@ const Game = () => {
       <div className="CardGrid">
         {cardUrls.map(cardUrl => {
           return <div onClick={playRound} key={uniqid()}>
-                   <Card url={cardUrl} />
-                 </div>;
+            <Card url={cardUrl} />
+          </div>;
         })}
       </div>
       <div className="Instructions">Don't click the same card twice!</div>
