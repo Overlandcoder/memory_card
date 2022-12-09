@@ -23,7 +23,6 @@ const Game = () => {
   ]);
 
   useEffect(() => {
-    document.title = 'Memory Card Game';
     updateBestScore();
   })
 
